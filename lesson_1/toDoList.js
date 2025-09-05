@@ -111,13 +111,59 @@ class TodoList {
   }
 
   filter(callback) {
-    let result = [];
-    for (let index = 0; index < this.todos.length; index++) {
-      if (callback(this.todos[index])) {
-        result.push(this.todos[index]);
+    let newList = new TodoList(this.title);
+    this.forEach(todo => {
+      if (callback(todo)) {
+        newList.add(todo);
       }
-    }
-    return result;
+    });
+    return newList;
+  }
+
+  findByTitle(title) {
+    return this.filter(item => {
+      return title === item.getTitle();
+    }).first();
+  }
+
+  allDone() {
+    let newList = new TodoList(this.title);
+    this.forEach(todo => {
+      if (todo.isDone()) {
+        newList.add(todo);
+      }
+    });
+    return newList;
+  }
+
+  allNotDone() {
+    let newList = new TodoList(this.title);
+    this.forEach(todo => {
+      if (!todo.isDone()) {
+        newList.add(todo);
+      }
+    });
+    return newList;
+  }
+
+  markDone(title) {
+    this.forEach(todo => {
+      if (todo.getTitle() === title) {
+        todo.markDone();
+      }
+    });
+  }
+
+  markAllDone() {
+    this.forEach(todo => todo.markDone());
+  }
+
+  markAllUndone() {
+    this.forEach(todo => todo.markUndone());
+  }
+
+  toArray() {
+    return this.todos.slice();
   }
 }
 
@@ -127,6 +173,7 @@ let todo3 = new Todo("Go to the gym");
 let todo4 = new Todo("Go shopping");
 let todo5 = new Todo("Feed the cats");
 let todo6 = new Todo("Study for Launch School");
+let todo7 = new Todo("Go to the gym");
 let list = new TodoList("Today's Todos");
 
 list.add(todo1);
@@ -135,8 +182,19 @@ list.add(todo3);
 list.add(todo4);
 list.add(todo5);
 list.add(todo6);
+list.add(todo7);
 todo1.markDone();
 todo5.markDone();
+// let doneTodos = list.filter(todo => todo.isDone()).first();
+// console.log(doneTodos);
 
-let doneTodos = list.filter(todo => todo.isDone());
-console.log(doneTodos);
+// console.log(list.findByTitle("Buy milk"));
+// console.log(list.findByTitle("Milk buyer"));
+// console.log(list.findByTitle("Go to the gym"));
+
+// console.log(list.allDone());
+// console.log(list.allNotDone());
+
+list.markAllDone();
+list.markAllUndone();
+console.log(list.toArray());
