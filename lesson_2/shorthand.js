@@ -48,16 +48,34 @@
 // let result = foo(array);
 // let [ bar, qux, baz ] = result;
 
-function foo([arr]) {
-  return [
-    arr[2],
-    5,
-    arr[0],
-  ];
-}
+// function foo([arr]) {
+//   return [
+//     arr[2],
+//     5,
+//     arr[0],
+//   ];
+// }
 
-let array = [1, 2, 3];
-let result = foo(array);
-let bar = result[0];
-let qux = result[1];
-let baz = result[2];
+// let array = [1, 2, 3];
+// let result = foo(array);
+// let bar = result[0];
+// let qux = result[1];
+// let baz = result[2];
+
+// function product(num1, num2, num3) {
+//   return num1 * num2 * num3;
+// }
+
+// let array = [2, 3, 5];
+// let result = product(array[0], array[1], array[2]);
+
+// function product() {
+//   let args = Array.from(arguments);
+//   return args.reduce((total, number) => total * number);
+// }
+
+// let result = product(2, 3, 4, 5);
+
+const foo = { foo: 42, bar: 3.1415, qux: "abc" };
+console.log(foo);         // 42
+console.log(rest);        // { bar: 3.1415, qux: 'abc' }
