@@ -76,6 +76,74 @@
 
 // let result = product(2, 3, 4, 5);
 
-const {foo, ...rest} = { foo: 42, bar: 3.1415, qux: "abc" };
-console.log(foo);         // 42
-console.log(rest);        // { bar: 3.1415, qux: 'abc' }
+// const {foo, ...rest} = { foo: 42, bar: 3.1415, qux: "abc" };
+// console.log(foo);         // 42
+// console.log(rest);        // { bar: 3.1415, qux: 'abc' }
+
+// const obj = {
+//   first: "I am the first",
+//   second: "I am the second",
+//   third: [1, 2, 3],
+//   rest: { a: 'a', b: 'b' },
+// };
+
+// const { first, second, ...rest } = obj;
+
+// const arr = [1, 2, 3];
+// const obj = { a: 'a', b: 'b', c: 'c' };
+
+// let [first, second, third] = arr;
+
+// console.log(second);
+
+// let { a, b, c} = obj;
+
+// console.log(b);
+
+// const arr = [1, 2, 3];
+
+// const [first, ...arr2] = arr;
+
+// console.log(first, arr2)
+
+// const arr = [1, 2, 3];
+
+// let [ , second , ] = arr;
+// console.log(second);
+
+// const obj = { a: 'a', b: 'b', c: 'c' };
+
+// let { c: tail, ...obj2} = obj;
+
+// console.log(obj2);
+// console.log(tail);
+
+// function sum(...args) {
+//   return args.reduce((a, b) => a + b, 0);
+// }
+
+// // console.log(sum(1, 2));
+// // console.log(sum(1, 2, 3));
+
+// let nums = [1, 2, 3, 4];
+// console.log(sum(...nums));
+
+// const arr = [1, 2, 3];
+
+// function prod(num1, num2) {
+//   return num1 * num2;
+// }
+
+// console.log(prod(...arr));
+
+let obj = {
+  foo: 'foo',
+  qux: 'qux',
+  bar: 'bar',
+};
+
+let obj2 = {...obj};
+let { ...obj3 } = obj;
+
+console.log(obj2);
+console.log(obj3);
