@@ -36,19 +36,15 @@ class Triangle {
   }
 
   isEquilateral() {
-    if ((this.sides[0] === this.sides[1]) &&
-      (this.sides[1] === this.sides[2])) {
-      return true;
-    }
-    return false;
+    return ((this.sides[0] === this.sides[1]) &&
+      (this.sides[1] === this.sides[2]));
   }
 
   isIsosceles() {
-    if (!this.isEquilateral() &&
+    return (!this.isEquilateral() &&
       ((this.sides[0] === this.sides[1]) ||
         (this.sides[1] === this.sides[2]) ||
-        (this.sides[0] === this.sides[2]))) return true;
-    return false;
+        (this.sides[0] === this.sides[2])));
   }
 
   isInvalid() {
