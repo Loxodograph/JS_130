@@ -22,4 +22,14 @@ describe("The Car class", () => {
     let car = new Car();
     expect(car.doors).toBeUndefined();
   });
+
+  test("raises an error when called drive on it", () => {
+    let car = new Car();
+    expect(() => car.drive()).toThrow();
+  });
+
+  test("raises a TypeError when called drive on it", () => {
+    let car = new Car();
+    expect(() => car.drive()).toThrow(TypeError);
+  })
 });
