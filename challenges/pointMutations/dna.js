@@ -23,14 +23,10 @@ class DNA {
     this.sequence = sequence;
   }
 
-  isValid() {
-    return (this.sequence.length === 0);
-  }
-
   hammingDistance(sequence2) {
     let count = 0;
-    let iterationSequence = Math.min(this.sequence.length, sequence2.length);
-    for (let letterIndex = 0; letterIndex < iterationSequence; letterIndex++) {
+    let comparisonLength = Math.min(this.sequence.length, sequence2.length);
+    for (let letterIndex = 0; letterIndex < comparisonLength; letterIndex++) {
       if (sequence2[letterIndex] !== this.sequence[letterIndex]) {
         count++;
       }
