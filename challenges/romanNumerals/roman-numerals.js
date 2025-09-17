@@ -1,7 +1,7 @@
-class RomanNumeral {
+class RomanNumeral() {
   constructor(number) {
     this.number = number;
   }
 }
 
-modules.export = RomanNumeral;
+module.exports = RomanNumeral;
