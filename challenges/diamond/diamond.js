@@ -6,33 +6,42 @@
 //
 class Diamond {
 
-  static ALPHABET = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
+  static ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
   static makeDiamond(letter) {
-    if (letter === "A") return Diamond.returnA();
-    let letterCount = Diamond.letterCount(letter);
-    let diamond = "";
-    let spaces = letterCount / 2;
-    for (let lineCount = 1; lineCount <= letterCount; lineCount++) {
-      if (spaces - lineCount < 0) {
-        spaces = 0;
-      } else {
-        spaces -= lineCount;
-      }
-      diamond += (" ".repeat(spaces) + Diamond.ALPHABET[lineCount - 1] + " ".repeat(spaces) + Diamond.ALPHABET[lineCount - 1] + "\n");
-    }
-    console.log(diamond);
-    return diamond;
+    if (letter === "A") return this.returnA();
+
+    let letterCode = Diamond.ALPHABET.indexOf(letter.toUpperCase()) + 1;
+    let alphabetArray = Diamond.ALPHABET.slice(0, letterCode)
+      .concat(Diamond.ALPHABET.slice(0, (letterCode - 1))
+        .reverse());
+
+    let totalWidth = (2 * (letterCode - 1)) + 1;
+
+    let diamondLineArray = alphabetArray.map(char => {
+      return this.makeRow(char, totalWidth);
+    });
+
+    return diamondLineArray.join("");
   }
 
   static returnA() {
     return "A\n";
   }
 
-  static letterCount(letter) {
-    return Diamond.ALPHABET.indexOf(letter) + 1;
+  static returnAWithSpaces(spaces) {
+    return " ".repeat(spaces) + "A" + " ".repeat(spaces) + "\n";
   }
 
+  static makeRow(letter, totalWidth) {
+    let letterCode = Diamond.ALPHABET.indexOf(letter.toUpperCase()) + 1;
+    let totalInnerSpaces = Math.floor((2 * (letterCode - 2)) + 1);
+    let totalOuterSpaces = Math.ceil(((totalWidth -
+      (totalInnerSpaces + 2))) / 2);
+
+    if (letter === "A") return Diamond.returnAWithSpaces((Math.floor((totalWidth / 2))));
+    return " ".repeat(totalOuterSpaces) + letter + " ".repeat(totalInnerSpaces) + letter + " ".repeat(totalOuterSpaces) + "\n";
+  }
 }
 
-Diamond.makeDiamond("B");
 module.exports = Diamond;
