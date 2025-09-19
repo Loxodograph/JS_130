@@ -57,10 +57,4 @@ class Diamond {
   }
 }
 
-
-// Diamond.forwardIteration(["A", "B"], console.log);
-// Diamond.backwardsIteration(["A", "B"], console.log);
-// console.log(Diamond.returnLetter("A", 1));
-// console.log(Diamond.returnLetter("B", 0));
-// console.log(Diamond.returnLetter("B", 2));
 module.exports = Diamond;
