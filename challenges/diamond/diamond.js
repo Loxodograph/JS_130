@@ -1,5 +1,3 @@
-"use strict";
-
 //Create a diamond using a given letter.
 
 //First row is A, last Row is A

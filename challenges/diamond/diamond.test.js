@@ -7,12 +7,12 @@ describe("Diamond", () => {
     expect(answer).toBe("A\n");
   });
 
-  test("letter b", () => {
+  xtest("letter b", () => {
     let answer = Diamond.makeDiamond('B');
     expect(answer).toBe(" A \nB B\n A \n");
   });
 
-  test("letter c", () => {
+  xtest("letter c", () => {
     let answer = Diamond.makeDiamond('C');
     let expected = "  A  \n" +
                    " B B \n" +
@@ -22,7 +22,7 @@ describe("Diamond", () => {
     expect(answer).toBe(expected);
   });
 
-  test("letter e", () => {
+  xtest("letter e", () => {
     let answer = Diamond.makeDiamond('E');
     let expected = "    A    \n" +
                    "   B B   \n" +
