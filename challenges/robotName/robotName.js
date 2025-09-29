@@ -15,8 +15,8 @@ new one generated
 
 let seedrandom = require('seedrandom');
 
-let rng = seedrandom('MySeed');
-let rng2 = seedrandom('mySeed2');
+// let rng = seedrandom('MySeed');
+// let rng2 = seedrandom('mySeed2');
 
 class Robot {
   constructor() {
@@ -60,12 +60,13 @@ class Robot {
 
   randomLetter() {
     let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-    let randomIndex = Math.floor(rng() * 26);
+    let randomIndex = Math.floor(Math.random() * 26);
     return alphabet[randomIndex];
   }
 
   randomNumber() {
-    return Math.floor(rng2() * 899) + 100;
+    let randomNumber = "";
+    return Math.floor(Math.random() * 900) + 100;
   }
 }
 
