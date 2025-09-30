@@ -136,14 +136,31 @@
 
 // console.log(prod(...arr));
 
-let obj = {
-  foo: 'foo',
-  qux: 'qux',
-  bar: 'bar',
-};
+// let obj = {
+//   foo: 'foo',
+//   qux: 'qux',
+//   bar: 'bar',
+// };
 
-let obj2 = {...obj};
-let { ...obj3 } = obj;
+// let obj2 = {...obj};
+// let { ...obj3 } = obj;
 
-console.log(obj2);
-console.log(obj3);
+// console.log(obj2);
+// console.log(obj3);
+
+function qux() {
+  let animalType = "cat";
+  let age = 9;
+  let colors = ["black", "white"];
+  // missing code
+  return {
+    type: animalType,
+    age,
+    colors,
+  };
+}
+
+let { type, age, colors } = qux();
+console.log(type);    // cat
+console.log(age);     // 9
+console.log(colors);  // [ 'black', 'white' ]
