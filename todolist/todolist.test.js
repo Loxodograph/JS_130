@@ -129,7 +129,7 @@ describe('TodoList', () => {
   test("forEach iterates over all elements", () => {
     let result = []
     list.forEach(element => {
-      result.push(element); 
+      result.push(element);
     })
 
     expect(result).toEqual(list.todos);
@@ -137,7 +137,7 @@ describe('TodoList', () => {
 
   test("filter returns new todo list", () => {
     list.markDoneAt(1)
-    let filteredList = list.filter(element => {element.isDone()});
+    let filteredList = list.filter(element => { element.isDone() });
 
     expect(filteredList).not.toBe(list.todos);
   })
@@ -162,12 +162,22 @@ describe('TodoList', () => {
     expect(newList.todos).toEqual([todo3]);
   })
 
+  test("markAllUndone marks all undone", () => {
+    list.markAllUndone();
+    let filteredList = list.filter(element => { element.isDone() }) || [];
+    expect(filteredList.todos).toEqual([]);
+  })
+
   test("markDone marks done using title", () => {
     list.markDone("Buy milk");
 
     let newList = list.allDone();
 
     expect(newList.todos).toEqual[todo1];
+  })
+
+  test("Todo is undefined", () => {
+    expect(list.markDone('undefined todo')).toEqual(null);
   })
 });
 
